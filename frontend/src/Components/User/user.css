@@ -1,0 +1,87 @@
+
+.user_container{
+    box-sizing: none;
+    min-height: 90vh;
+}
+.sc-user-profile {
+  margin: auto;
+  width: auto;
+  background: #fff;
+  border-radius: .3em;
+}
+
+.sc-user-profile .left {
+  float: left;
+  padding: 0 15px 10px;
+  width: 20%;
+  font-weight: bold;
+}
+
+.sc-user-profile .right {
+  padding: 0 5px 10px;
+  width: 80%;
+}
+
+.sc-user-profile .username {
+  margin: auto;
+  margin-top: -4.40em;
+  margin-left: 5.80em;
+  color: #658585;
+  font-size: 1.53em;
+  font-weight: bold;
+}
+
+.sc-user-profile .bio {
+  margin: auto;
+  display: inline-block;
+  margin-left: 10.43em;
+  color: #5443c3;
+  font-weight: 600;
+  font-size: .87em;
+}
+
+.sc-user-profile > .description {
+  margin: auto;
+  margin-top: 1.35em;
+  margin-right: 4.43em;
+  width: 14em;
+  color: #414444;
+  font-size: .87em;
+}
+
+.sc-user-profile > img.avatar {
+  padding: .6em;
+  margin-left: .3em;
+  margin-top: .3em;
+  height: auto;
+  width: 6.23em;
+  border-radius: 4em;
+}
+
+.sc-user-profile div.data {
+  margin: 2em auto 1em;
+  padding: 8px;
+  background: #5443c3;
+  text-align: center;
+  border-radius: 0 0 .3em .3em;
+}
+
+.sc-user-profile span {
+
+  color: #e3eeee;
+  white-space: nowrap;
+  font-size: 1.27em;
+  font-weight: bold;
+}
+
+.sc-user-profile span:hover {
+  color: #daebea;
+}
+@media only screen and (max-width: 500px) {
+  .sc-user-profile .left {
+    float: left;
+    padding: 0 15px 10px;
+    width: 72%;
+    font-weight: bold;
+  }
+}
