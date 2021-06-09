@@ -19,8 +19,10 @@ import {
 } from "react-router-dom";
 import CollegeDash from '../College/CollegeDash'
 import Landing from '../landing/Landing'
+import Search from '../search/Search'
 
 function Dash() {
+  const [search, setsearch] = React.useState("")
   return (
     <div>
 
@@ -53,10 +55,13 @@ function Dash() {
         </label>
         <div class="icerik">
           <div class="ust">
-            <div class="ara">
-              <input type="text" placeholder="Search Product" />
+          <Link to="/search">
+
+            <div class="ara" >
+              <input type="text" placeholder="Search Colleges" onChange={e=>{setsearch(e.target.value)}} />
               <i class="fa fa-search"></i>
             </div>
+            </Link>
             <div class="kullanıcı">
               <a target="_blank" href="https://portfolio-vaibhav-tiwari.herokuapp.com"><i class="fas fa-wallet"></i></a>
               <a target="_blank" href="https://github.com/Vaibhav10sept"><i class="fa fa-github" aria-hidden="true"></i></a>
@@ -70,6 +75,7 @@ function Dash() {
           </div>
           <Switch>
             <Route exact path="/" component={Landing} />
+            <Route exact path="/search" component={()=>(<Search search={search} /> ) } />
 
             <Route exact path="/state" component={CollegeDash} />
             <Route exact path="/course" component={StudentDash} />
