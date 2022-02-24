@@ -75,7 +75,7 @@ searched?
               <div class="College_cell">
                 Courses
       </div>
-            </div>:<h2>You didn't typed anything yet</h2>}
+            </div>:<h2>You haven't written anything yet</h2>}
             {fetcheddata ? fetcheddata.filter(val=>{
               if(search == "") {
                 return null;
