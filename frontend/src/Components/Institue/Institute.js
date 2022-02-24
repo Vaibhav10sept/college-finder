@@ -13,7 +13,7 @@ function Institute() {
     useEffect(() => {
 
     axios
-        .get(`https://college-backend-assignment.herokuapp.com/api/college/${id}`)
+        .get(`http://localhost:8000/api/college/${id}`)
         .then((res) => {
             setfetcheddata(res.data);
             console.log("data", fetcheddata);

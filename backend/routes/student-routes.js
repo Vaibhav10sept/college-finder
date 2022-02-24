@@ -32,56 +32,56 @@ router.get(
 );
 
 
-// router.get(
-//   '/storedata/seed',
-//   expressAsyncHandler(async (req, res) => {
-//     try {
-//     await Student.remove({});
+router.get(
+  '/storedata/seed',
+  expressAsyncHandler(async (req, res) => {
+    try {
+    await Student.remove({});
 
-//       let college = [];
-//       let ids = [];
-//       let test = 1;
-//       let i;
-//       let j;
-//       ids = await College.find({}).select("_id");
-//       let final = [];
-//       ids.forEach(function (entry) {
-//         final.push(entry["_id"])
-//       });
-//       const year = ["2016", "2018", "2017", "2020", "2021","2015","2014"];
-//       const skills = ["CC", "CPP", "Java", "SQL", "React", "Web_D", "JS","PHP","View","Ruby","UI","UX","Pearl"]
+      let college = [];
+      let ids = [];
+      let test = 1;
+      let i;
+      let j;
+      ids = await College.find({}).select("_id");
+      let final = [];
+      ids.forEach(function (entry) {
+        final.push(entry["_id"])
+      });
+      const year = ["2016", "2018", "2017", "2020", "2021","2015","2014"];
+      const skills = ["CC", "CPP", "Java", "SQL", "React", "Web_D", "JS","PHP","View","Ruby","UI","UX","Pearl"]
 
 
 
-// for(j=0;j<100;j++){
+for(j=0;j<100;j++){
 
-// let clgid = final[j];
-//       for (i = 0; i < 100; i++) {
-//           const ranyear = Math.floor(Math.random() * year.length);
-//           const shuffled = skills.sort(() => 0.5 - Math.random());
-//           let selected = shuffled.slice(0, 4);
-//           const temp = {
-//               name: `student${test}`,
-//               yearOfBatch: year[ranyear],
-//               skills: selected,
-//               collegeId: clgid,
-//           };
-//           test++
-//           college.push(temp)
-//       }
-// }
+let clgid = final[j];
+      for (i = 0; i < 100; i++) {
+          const ranyear = Math.floor(Math.random() * year.length);
+          const shuffled = skills.sort(() => 0.5 - Math.random());
+          let selected = shuffled.slice(0, 4);
+          const temp = {
+              name: `student${test}`,
+              yearOfBatch: year[ranyear],
+              skills: selected,
+              collegeId: clgid,
+          };
+          test++
+          college.push(temp)
+      }
+}
     
-//       // console.log("student", college)
-//       const createdProducts = await Student.insertMany(college);
-//       res.send({ createdProducts });
-//     } catch (err) {
-//       res.send(err.message);
-//     }
+      // console.log("student", college)
+      const createdProducts = await Student.insertMany(college);
+      res.send({ createdProducts });
+    } catch (err) {
+      res.send(err.message);
+    }
 
 
 
-//   })
-// );
+  })
+);
 
 
 router.get('/', (req, res) => {

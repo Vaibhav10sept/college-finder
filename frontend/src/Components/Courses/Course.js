@@ -16,7 +16,7 @@ function Course({course}) {
 
   useEffect(() => {
   axios
-      .get(`https://college-backend-assignment.herokuapp.com/api/college/course/${course}`)
+      .get(`http://localhost:8000/api/college/course/${course}`)
       .then((res) => {
         setfetcheddata(res.data);
         console.log("data", fetcheddata);

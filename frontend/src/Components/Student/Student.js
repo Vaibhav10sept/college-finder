@@ -13,7 +13,7 @@ function Student({ collegeId }) {
     console.log("id from props",collegeId);
 
     axios
-      .get(`https://college-backend-assignment.herokuapp.com/api/student/collegeId/${collegeId}`)
+      .get(`http://localhost:8000/api/student/collegeId/${collegeId}`)
       .then((res) => {
         setfetcheddata(res.data);
         console.log("college students", fetcheddata);

@@ -15,7 +15,7 @@ function College({ state, collegeId, searched, search }) {
   React.useEffect(() => {
     if (state) {
       axios
-        .get(`https://college-backend-assignment.herokuapp.com/api/college/state/${state}`)
+        .get(`http://localhost:8000/api/college/state/${state}`)
         .then((res) => {
           setfetcheddata(res.data);
           console.log("data", fetcheddata);
@@ -26,7 +26,7 @@ function College({ state, collegeId, searched, search }) {
     }
     if (collegeId) {
       axios
-        .get(`https://college-backend-assignment.herokuapp.com/api/college/similarCollege/${collegeId}`)
+        .get(`http://localhost:8000/api/college/similarCollege/${collegeId}`)
         .then((res) => {
           setfetcheddata(res.data);
           console.log("data", fetcheddata);
@@ -38,7 +38,7 @@ function College({ state, collegeId, searched, search }) {
     if (searched) {
       console.log("searchinggg");
       axios
-        .get("https://college-backend-assignment.herokuapp.com/api/college")
+        .get("http://localhost:8000/api/college")
         .then((res) => {
           setfetcheddata(res.data);
           console.log("data", fetcheddata);

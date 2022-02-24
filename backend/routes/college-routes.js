@@ -110,58 +110,50 @@ router.get(
     })
 );
 
+router.get(
+    '/storedata/seed',
+    expressAsyncHandler(async (req, res) => {
+        try {
+    await College.remove({});
+
+            let college = [];
+            let test = 1;
+            let i;
+            const years = ["1998", "2000", "2010", "1995", "2002", "2005", "2009","2008","2003","2004","2018","1999",];
+            const city = ["city1", "city2", "city3", "city4", "city5", "city6", "city7","city8","city9","city10","city11"]
+            const state = ["uttar pradesh", "haryana", "madhya pradesh", "maharashtra", "andhra pradesh", "assam", "jharkhand"]
+            const course = ["IT", "CSE", "ML", "M-TECH", "PHD", "HM", "BSC","BCOM","MCOM","BA","MA","MSC"];
+
+            for (i = 0; i < 100; i++) {
+                const ranyears = Math.floor(Math.random() * years.length);
+                const rancity = Math.floor(Math.random() * city.length);
+                const ranstate = Math.floor(Math.random() * state.length);
+
+                const shuffled = course.sort(() => 0.5 - Math.random());
 
 
+                let selected = shuffled.slice(0, 4);
+                const temp = {
+                    name: `college${test}`,
+                    yearFounded: years[ranyears],
+                    city: city[rancity],
+                    state: state[ranstate],
+                    country: "india",
+                    courses: selected,
 
-// router.get(
-//     '/storedata/seed',
-//     expressAsyncHandler(async (req, res) => {
-//         try {
-//     await College.remove({});
+                };
+                test++
+                college.push(temp)
+            }
 
-//             let college = [];
-//             let test = 1;
-//             let i;
-//             const years = ["1998", "2000", "2010", "1995", "2002", "2005", "2009","2008","2003","2004","2018","1999",];
-//             const city = ["city1", "city2", "city3", "city4", "city5", "city6", "city7","city8","city9","city10","city11"]
-//             const state = ["uttar pradesh", "haryana", "madhya pradesh", "maharashtra", "andhra pradesh", "assam", "jharkhand"]
-//             const course = ["IT", "CSE", "ML", "M-TECH", "PHD", "HM", "BSC","BCOM","MCOM","BA","MA","MSC"];
-
-
-
-//             for (i = 0; i < 100; i++) {
-//                 const ranyears = Math.floor(Math.random() * years.length);
-//                 const rancity = Math.floor(Math.random() * city.length);
-//                 const ranstate = Math.floor(Math.random() * state.length);
-
-//                 const shuffled = course.sort(() => 0.5 - Math.random());
-
-
-//                 let selected = shuffled.slice(0, 4);
-//                 const temp = {
-//                     name: `college${test}`,
-//                     yearFounded: years[ranyears],
-//                     city: city[rancity],
-//                     state: state[ranstate],
-//                     country: "india",
-//                     courses: selected,
-
-//                 };
-//                 test++
-//                 college.push(temp)
-//             }
-
-//             console.log("products", college)
-//             const createdProducts = await College.insertMany(college);
-//             res.send({ createdProducts });
-//         } catch (err) {
-//             res.send(err.message);
-//         }
-
-
-
-//     })
-// );
+            console.log("products", college)
+            const createdProducts = await College.insertMany(college);
+            res.send({ createdProducts });
+        } catch (err) {
+            res.send(err.message);
+        }
+    })
+);
 
 router.get('/', (req, res) => {
     College.find({}).then(blog => {
